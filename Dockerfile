@@ -11,7 +11,7 @@ COPY basic-nextjs-app-main/package.json ./
 RUN npm install
 
 # Copy all files
-COPY . .
+COPY basic-nextjs-app-main .
 
 # Build the Next.js app
 RUN npm run build
