@@ -5,7 +5,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy dependencies definition
-COPY package*.json ./
+COPY basic-nextjs-app-main/package.json ./
 
 # Install dependencies
 RUN npm install
