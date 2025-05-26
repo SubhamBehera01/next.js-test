@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                git credentialsId: 'subham', url: 'https://github.com/SubhamBehera01/nextjs-test.git', branch: 'master'
+                git credentialsId: 'subham', url: 'https://github.com/SubhamBehera01/next.js-test', branch: 'master'
             }
         }
 
