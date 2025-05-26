@@ -23,13 +23,11 @@ pipeline {
             }
         }
 
-        stage('Login to ECR') {
-            steps {
-                script {
-                    sh 'aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${ECR_REPO}'
-                }
-            }
-        }
+        stage('Clone Repo') {
+    steps {
+        git credentialsId: 'subham', url: 'https://github.com/SubhamBehera01/nextjs-test.git', branch: 'master'
+    }
+}
 
         stage('Tag and Push Image') {
             steps {
