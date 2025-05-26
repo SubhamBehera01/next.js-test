@@ -10,3 +10,9 @@ export default function handler(req, res) {
   //   });
   res.status(200).json({ name: 'John Doe' })
 }
+
+// pages/apiv1/hello.js
+
+// export default function handler(req, res) {
+//   res.status(200).json({ message: 'Hello from Next.js API' });
+// }
