@@ -14,6 +14,14 @@ function Card(props) {
         <p> Description: {props.description} </p>
         <p>From {props.source} to {props.destination}</p>
         <p>Tracking Number: #{props.tracking_number}</p>
+        <p>Shipment ID: {props.id}</p>
+        <p>Shipment Date: {props.shipment_date}</p>
+        <p>Delivery Date: {props.delivery_date}</p>
+        <p>Created At: {props.created_at}</p>
+        <p>Updated At: {props.updated_at}</p>
+        <p>Deleted At: {props.deleted_at}</p>
+        <p>Created By: {props.created_by}</p>
+        <p>Updated By: {props.updated_by}</p> 
       </div>
     </div>
   )
