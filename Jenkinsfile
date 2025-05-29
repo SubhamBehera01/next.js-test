@@ -8,21 +8,13 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repo') {
+        stage('Declarative: Checkout SCM') {
             steps {
-                git credentialsId: 'subham', url: 'https://github.com/SubhamBehera01/next.js-test', branch: 'master'
+                git credentialsId: 'subham', url: 'https://github.com/SubhamBehera01/next.js-test.git', branch: 'master'
             }
         }
-
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    sh "docker build -t ${IMAGE_NAME} ."
-                }
-            }
-        }
-
-        stage('Login to ECR') {
+        
+        stage('Logging into AWS ECR') {
             steps {
                 script {
                     sh "aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin 130013148969.dkr.ecr.${AWS_REGION}.amazonaws.com"
@@ -30,7 +22,15 @@ pipeline {
             }
         }
 
-        stage('Tag and Push Image') {
+        stage('Build Image') {
+            steps {
+                script {
+                    sh "docker build -t ${IMAGE_NAME} ."
+                }
+            }
+        }
+
+        stage('Push to ECR') {
             steps {
                 script {
                     sh """
